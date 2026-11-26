@@ -46,7 +46,7 @@ class CDiscordInterface;
 #define DIRECTINPUT_VERSION 0x0800
 #include <dinput.h>
 
-#define BLUE_VERSION_STRING   "Multi Theft Auto v" MTA_DM_BUILDTAG_LONG
+#define BLUE_VERSION_STRING   "XMP Client v" MTA_DM_BUILDTAG_LONG
 #define BLUE_COPYRIGHT_STRING "Copyright (C) 2003 - %BUILD_YEAR% Multi Theft Auto"
 
 // Configuration file path (relative to MTA install directory)

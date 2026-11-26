@@ -17,8 +17,11 @@ game imagery.
 
 ### User-facing strings
 "Multi Theft Auto" product strings in the loader splash, install manager
-message boxes, crash-dump exe candidates, proxy launch warning, CEF user
-agent and the core AppUserModelID now say **XMP / XMP Client**.
+and privilege-elevation message boxes, crash-dump exe candidates, proxy
+launch warning, CEF user agent, tray tooltip, credits heading/window,
+version string and the core AppUserModelID now say **XMP / XMP Client**.
+The legacy LocalAppData path used only as a read-only migration source is
+intentionally unchanged.
 Translation templates (`locale/*.po`) still contain the old msgids; they
 fall back to the new English strings until the next Crowdin sync.
 

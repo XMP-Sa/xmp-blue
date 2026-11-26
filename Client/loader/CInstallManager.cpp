@@ -454,8 +454,8 @@ SString CInstallManager::_ChangeToAdmin()
     if (!IsUserAdmin())
     {
         MessageBoxUTF8(
-            NULL, SString(_("MTA:SA needs Administrator access for the following task:\n\n  '%s'\n\nPlease confirm in the next window."), *m_strAdminReason),
-            "Multi Theft Auto: San Andreas", MB_OK | MB_ICONINFORMATION | MB_TOPMOST);
+            NULL, SString(_("XMP needs Administrator access for the following task:\n\n  '%s'\n\nPlease confirm in the next window."), *m_strAdminReason),
+            "XMP Client", MB_OK | MB_ICONINFORMATION | MB_TOPMOST);
         SetIsBlockingUserProcess();
         ReleaseSingleInstanceMutex();
         if (ShellExecuteBlocking("runas", GetLauncherPathFilename(), GetSequencerSnapshot()))
@@ -469,8 +469,8 @@ SString CInstallManager::_ChangeToAdmin()
         }
         CreateSingleInstanceMutex();
         ClearIsBlockingUserProcess();
-        MessageBoxUTF8(NULL, SString(_("MTA:SA could not complete the following task:\n\n  '%s'\n"), *m_strAdminReason),
-                       "Multi Theft Auto: San Andreas" + _E("CL01"), MB_OK | MB_ICONWARNING | MB_TOPMOST);
+        MessageBoxUTF8(NULL, SString(_("XMP could not complete the following task:\n\n  '%s'\n"), *m_strAdminReason),
+                       "XMP Client" + _E("CL01"), MB_OK | MB_ICONWARNING | MB_TOPMOST);
     }
     return "fail";
 }
@@ -1724,8 +1724,8 @@ SString CInstallManager::_ProcessLangFileChecks()
         strMessage += "\n\n";
         strMessage += PathJoin(strTextFilePath, langFileNames[0]);
         strMessage += "\n\n";
-        strMessage += _("If MTA fails to load, please re-install GTA:SA");
-        MessageBoxUTF8(NULL, strMessage, "Multi Theft Auto: San Andreas", MB_OK | MB_ICONWARNING | MB_TOPMOST);
+        strMessage += _("If XMP fails to load, please re-install GTA:SA");
+        MessageBoxUTF8(NULL, strMessage, "XMP Client", MB_OK | MB_ICONWARNING | MB_TOPMOST);
         return "ok";
     }
 
