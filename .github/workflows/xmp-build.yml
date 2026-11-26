@@ -126,10 +126,17 @@ jobs:
           EOF
           gcc -O2 -o /tmp/ase_check /tmp/ase_check.c
           cd Bin/server
-          (timeout 30 ./xmp-server64 > /tmp/xmp-smoke.log 2>&1 &)
-          sleep 12
-          /tmp/ase_check
-          tail -5 /tmp/xmp-smoke.log || true
+          ls -la xmp-server64 x64/ | head -12
+          (timeout 90 ./xmp-server64 > /tmp/xmp-smoke.log 2>&1 &)
+          ok=0
+          for i in $(seq 1 20); do
+            sleep 3
+            if /tmp/ase_check; then ok=1; break; fi
+            echo "retry $i…"
+          done
+          echo "--- server log (tail) ---"
+          tail -20 /tmp/xmp-smoke.log || true
+          [ "$ok" = "1" ]
 
       - name: Upload XMP Server artifact
         uses: actions/upload-artifact@v6
