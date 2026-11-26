@@ -102,6 +102,9 @@ jobs:
       # cannot start at all ("Loading network library failed").
       - name: Fetch net modules (curl)
         run: |
+          if ! command -v curl >/dev/null 2>&1; then
+            apt-get update -qq && apt-get install -y -qq curl ca-certificates
+          fi
           BASE=https://mirror-cdn.multitheftauto.com/bdata
           mkdir -p Bin/server/x64
           curl -fsSL "$BASE/net_64.so" -o Bin/server/x64/net.so
