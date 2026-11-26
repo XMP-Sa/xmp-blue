@@ -265,7 +265,7 @@ void CInstallManager::InitSequencer()
         //
         // Flow when game crashes:
         // 1. core.dll crash handler saves crash info to settings
-        // 2. core.dll launches "Multi Theft Auto.exe install_stage=crashed" (bypasses mutex)
+        // 2. core.dll launches "XMP Client.exe install_stage=crashed" (bypasses mutex)
         // 3. New launcher lands HERE at "crashed:" label
         // 4. Shows dialog with crash info from settings
         // 5. User chooses restart or quit
@@ -1081,7 +1081,7 @@ SString CInstallManager::_CheckOnRestartCommand()
 //////////////////////////////////////////////////////////
 SString CInstallManager::_MaybeSwitchToTempExe()
 {
-    // If a new "Multi Theft Auto.exe" exists, let that complete the install
+    // If a new "XMP Client.exe" exists, let that complete the install
     if (m_pSequencer->GetVariable(INSTALL_LOCATION) == "far")
     {
         // Carry the current real install root forward to the temp launcher so it can set a base-dir
@@ -1114,7 +1114,7 @@ SString CInstallManager::_SwitchBackFromTempExe()
 
         // GetInstallPathForLauncher returns empty when running from a temp update directory and no
         // usable non-temp install root could be resolved. PathJoin would then produce a root-relative
-        // probe like "\Multi Theft Auto.exe", which could match an unrelated file on the current drive
+        // probe like "\XMP Client.exe", which could match an unrelated file on the current drive
         // and cause us to launch the wrong executable. Skip straight to the GetMTASAPath() fallback.
         const SString strRealInstallRoot = GetInstallPathForLauncher();
         SString       strLauncherPathFilename = strRealInstallRoot.empty() ? SString() : PathJoin(strRealInstallRoot, MTA_EXE_NAME);

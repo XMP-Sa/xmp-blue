@@ -1,7 +1,7 @@
 project "Client Launcher"
 	language "C++"
 	kind "WindowedApp"
-	targetname "Multi Theft Auto"
+	targetname "XMP Client"
 	targetdir(buildpath("."))
 	debugdir(buildpath("."))
 	clangtidy "On"
@@ -33,10 +33,10 @@ project "Client Launcher"
 		staticruntime "On"
 		files {
 			"NEU/gameicon_NEU.ico",
-			"NEU/Multi Theft Auto.gdf.xml",
+			"NEU/XMP Client.gdf.xml",
 			"launch.rc",
-			"Multi Theft Auto.rc",
-			"Multi Theft Auto.manifest",
+			"XMP Client.rc",
+			"XMP Client.manifest",
 			"resource/mtaicon.ico"
 		}
 

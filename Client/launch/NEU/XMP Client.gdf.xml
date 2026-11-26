@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-16"?>
 <GameDefinitionFile xmlns:baseTypes="urn:schemas-microsoft-com:GamesExplorerBaseTypes.v1" xmlns="urn:schemas-microsoft-com:GameDescription.v1">
     <GameDefinition gameID="{8A7FC5C7-0023-4CD7-B1D6-89073CFD838F}">
-        <Name>Multi Theft Auto</Name>
-        <Description>Play San Andreas with an all new Multiplayer twist! Multi Theft Auto is an open-source game engine that adds full multi-player network play functionality to Rockstar North's Grand Theft Auto game series, in which this functionality is not originally found.</Description>
+        <Name>XMP Client</Name>
+        <Description>Play San Andreas online. XMP is an independent multiplayer platform based on the open-source Multi Theft Auto engine (GPLv3). Not affiliated with the MTA team or Rockstar.</Description>
         <ReleaseDate>2003-02-09</ReleaseDate>
         <Genres>
             <Genre>Action</Genre>
