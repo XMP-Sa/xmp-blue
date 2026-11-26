@@ -98,20 +98,38 @@ jobs:
 
       - name: Smoke test (boot + ASE query)
         run: |
+          cat > /tmp/ase_check.c <<'EOF'
+          #include <stdio.h>
+          #include <string.h>
+          #include <unistd.h>
+          #include <arpa/inet.h>
+          #include <sys/socket.h>
+          int main(void) {
+              int fd = socket(AF_INET, SOCK_DGRAM, 0);
+              struct timeval tv = {6, 0};
+              setsockopt(fd, SOL_SOCKET, SO_RCVTIMEO, &tv, sizeof(tv));
+              struct sockaddr_in addr = {0};
+              addr.sin_family = AF_INET;
+              addr.sin_port = htons(22003 + 123);
+              inet_pton(AF_INET, "127.0.0.1", &addr.sin_addr);
+              sendto(fd, "s", 1, 0, (struct sockaddr*)&addr, sizeof(addr));
+              char buf[4096];
+              ssize_t n = recvfrom(fd, buf, sizeof(buf) - 1, 0, NULL, NULL);
+              if (n <= 0) { printf("no ASE response\n"); return 1; }
+              buf[n] = 0;
+              printf("ASE response: %.100s\n", buf);
+              if (strncmp(buf, "EYE1", 4) != 0) { printf("bad ASE payload\n"); return 1; }
+              if (!strstr(buf, "XMP Server")) { printf("server name is not XMP Server\n"); return 1; }
+              printf("SMOKE OK\n");
+              return 0;
+          }
+          EOF
+          gcc -O2 -o /tmp/ase_check /tmp/ase_check.c
           cd Bin/server
-          (timeout 25 ./xmp-server64 > /tmp/xmp-smoke.log 2>&1 &)
+          (timeout 30 ./xmp-server64 > /tmp/xmp-smoke.log 2>&1 &)
           sleep 12
-          python3 - <<'PY'
-          import socket
-          s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-          s.settimeout(6)
-          s.sendto(b's', ('127.0.0.1', 22003 + 123))
-          data, _ = s.recvfrom(4096)
-          print('ASE response:', data[:100])
-          assert data.startswith(b'EYE1'), 'unexpected ASE payload'
-          assert b'XMP Server' in data, 'server name is not XMP Server'
-          print('SMOKE OK')
-          PY
+          /tmp/ase_check
+          tail -5 /tmp/xmp-smoke.log || true
 
       - name: Upload XMP Server artifact
         uses: actions/upload-artifact@v6
