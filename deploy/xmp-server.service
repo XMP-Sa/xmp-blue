@@ -1,0 +1,16 @@
+[Unit]
+Description=XMP Server
+After=network.target
+
+[Service]
+Type=simple
+User=xmp
+WorkingDirectory=/opt/xmp-server
+ExecStart=/opt/xmp-server/xmp-server64
+Restart=on-failure
+RestartSec=5
+# game port 22003/udp + ASE 22126/udp must be open in the firewall
+LimitNOFILE=65535
+
+[Install]
+WantedBy=multi-user.target

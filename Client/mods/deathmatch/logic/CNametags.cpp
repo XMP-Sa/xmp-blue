@@ -37,7 +37,7 @@ CNametags::CNametags(CClientManager* pManager)
     m_usDimension = 0;
     m_bVisible = true;
     m_pConnectionTroubleIcon =
-        g_pCore->GetGraphics()->GetRenderItemManager()->CreateTexture(CalcMTASAPath("MTA\\cgui\\images\\16-message-warn.png"), NULL, false);
+        g_pCore->GetGraphics()->GetRenderItemManager()->CreateTexture(CalcMTASAPath("XMP\\cgui\\images\\16-message-warn.png"), NULL, false);
 }
 
 CNametags::~CNametags()

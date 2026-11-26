@@ -1217,7 +1217,7 @@ SString CInstallManager::_PrepareLaunchLocation()
     TerminateGTAIfRunning();
 
     const fs::path gtaDir = GetGameBaseDirectory();
-    const fs::path mtaDir = GetMTARootDirectory() / "MTA";
+    const fs::path mtaDir = GetMTARootDirectory() / "XMP";
     const fs::path launchDir = GetGameLaunchDirectory();
 
     // Copy GTA dependencies to our launch directory.
@@ -1606,9 +1606,9 @@ SString CInstallManager::_ProcessLayoutChecks()
 
     // New log/config file layout
     {
-        SString strOldDir = CalcMTASAPath("MTA");
-        SString strNewConfigDir = CalcMTASAPath(PathJoin("MTA", "config"));
-        SString strNewLogDir = CalcMTASAPath(PathJoin("MTA", "logs"));
+        SString strOldDir = CalcMTASAPath("XMP");
+        SString strNewConfigDir = CalcMTASAPath(PathJoin("XMP", "config"));
+        SString strNewLogDir = CalcMTASAPath(PathJoin("XMP", "logs"));
 
         MakeSureDirExists(strNewConfigDir + "/");
         MakeSureDirExists(strNewLogDir + "/");

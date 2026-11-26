@@ -58,7 +58,7 @@ namespace CrashHandler::Details
 
         // Main client process PDBs are emitted beside the launcher, the MTA binaries, or the Deathmatch module. Checking only those locations prevents
         // large resource trees from delaying startup while retaining local-symbol support for development builds.
-        const std::array candidateDirectories{processDirectory, processDirectory / L"MTA", processDirectory / L"mods" / L"deathmatch"};
+        const std::array candidateDirectories{processDirectory, processDirectory / L"XMP", processDirectory / L"mods" / L"deathmatch"};
 
         for (const auto& directory : candidateDirectories)
         {

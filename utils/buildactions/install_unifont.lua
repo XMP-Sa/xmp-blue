@@ -6,7 +6,7 @@ premake.modules.install_unifont = {}
 local UNIFONT_BASEURL = "https://github.com/multitheftauto/unifont/releases/download/"
 local UNIFONT_DOWNLOAD_FILENAME = "unifont-16.0.04.ttf"
 local UNIFONT_FILENAME = "unifont.ttf"
-local UNIFONT_PATH = "Shared/data/MTA San Andreas/MTA/cgui"
+local UNIFONT_PATH = "Shared/data/XMP/XMP/cgui"
 
 -- Change these to update the version
 local UNIFONT_TAG = "v16.0.04"

@@ -350,15 +350,15 @@ static constexpr std::size_t kCrashArtifactCount = 3;
 void CheckLibVersions()
 {
 #if MTASA_VERSION_TYPE >= VERSION_TYPE_UNTESTED
-    const char* moduleList[] = {"MTA\\loader.dll",
-                                "MTA\\cgui.dll",
-                                "MTA\\core.dll",
-                                "MTA\\game_sa.dll",
-                                "MTA\\multiplayer_sa.dll",
-                                "MTA\\netc.dll",
-                                "MTA\\xmll.dll",
-                                "MTA\\game_sa.dll",
-                                "MTA\\" LOADER_PROXY_DLL_NAME,
+    const char* moduleList[] = {"XMP\\loader.dll",
+                                "XMP\\cgui.dll",
+                                "XMP\\core.dll",
+                                "XMP\\game_sa.dll",
+                                "XMP\\multiplayer_sa.dll",
+                                "XMP\\netc.dll",
+                                "XMP\\xmll.dll",
+                                "XMP\\game_sa.dll",
+                                "XMP\\" LOADER_PROXY_DLL_NAME,
                                 "mods\\deathmatch\\client.dll",
                                 "mods\\deathmatch\\pcre2.dll"};
 
@@ -566,7 +566,7 @@ void InitLocalization(bool bShowErrors)
         FreeLibrary(hCoreModule);
         if (bShowErrors)
         {
-            DisplayErrorMessageBox("Loading localization failed. Please ensure that MTA San Andreas 1.6\\MTA\\locale is accessible.", _E("CL26"),
+            DisplayErrorMessageBox("Loading localization failed. Please ensure that XMP\\locale is accessible.", _E("CL26"),
                                    "localization-not-loadable");
         }
         return;
@@ -578,7 +578,7 @@ void InitLocalization(bool bShowErrors)
         FreeLibrary(hCoreModule);
         if (bShowErrors)
         {
-            DisplayErrorMessageBox("Loading localization failed. Please ensure that MTA San Andreas 1.6\\MTA\\locale is accessible.", _E("CL26"),
+            DisplayErrorMessageBox("Loading localization failed. Please ensure that XMP\\locale is accessible.", _E("CL26"),
                                    "localization-not-loadable");
         }
         return;
@@ -834,7 +834,7 @@ void ConfigureWerDumpPath()
         return;
 
     // Build dump path: <install root>\MTA\dumps\private
-    std::wstring dumpPathW = FromUTF8(PathJoin(strInstallPath, "MTA", "dumps", "private"));
+    std::wstring dumpPathW = FromUTF8(PathJoin(strInstallPath, "XMP", "dumps", "private"));
 
     SString mtaDumpPath = UTF16ToMbUTF8(dumpPathW);
     if (mtaDumpPath.empty())
@@ -1556,28 +1556,28 @@ void CheckDataFiles()
     }
 
     // Check for essential MTA files
-    static const char* dataFiles[] = {"MTA\\cgui\\images\\background_logo.png",
-                                      "MTA\\cgui\\images\\radarset\\up.png",
-                                      "MTA\\cgui\\images\\busy_spinner.png",
-                                      "MTA\\data\\gta_sa_diff.dat",
-                                      "MTA\\D3DX9_42.dll",
-                                      "MTA\\D3DCompiler_42.dll",
-                                      "MTA\\d3dcompiler_43.dll",
-                                      "MTA\\d3dcompiler_47.dll",
-                                      "MTA\\bass.dll",
-                                      "MTA\\bass_ac3.dll",
-                                      "MTA\\bassflac.dll",
-                                      "MTA\\bassmix.dll",
-                                      "MTA\\basswebm.dll",
-                                      "MTA\\bass_aac.dll",
-                                      "MTA\\bass_fx.dll",
-                                      "MTA\\bassmidi.dll",
-                                      "MTA\\bassopus.dll",
-                                      "MTA\\basswma.dll",
-                                      "MTA\\tags.dll",
-                                      "MTA\\sa.dat",
-                                      "MTA\\xinput1_3_mta.dll",
-                                      "MTA\\XInput9_1_0_mta.dll"};
+    static const char* dataFiles[] = {"XMP\\cgui\\images\\background_logo.png",
+                                      "XMP\\cgui\\images\\radarset\\up.png",
+                                      "XMP\\cgui\\images\\busy_spinner.png",
+                                      "XMP\\data\\gta_sa_diff.dat",
+                                      "XMP\\D3DX9_42.dll",
+                                      "XMP\\D3DCompiler_42.dll",
+                                      "XMP\\d3dcompiler_43.dll",
+                                      "XMP\\d3dcompiler_47.dll",
+                                      "XMP\\bass.dll",
+                                      "XMP\\bass_ac3.dll",
+                                      "XMP\\bassflac.dll",
+                                      "XMP\\bassmix.dll",
+                                      "XMP\\basswebm.dll",
+                                      "XMP\\bass_aac.dll",
+                                      "XMP\\bass_fx.dll",
+                                      "XMP\\bassmidi.dll",
+                                      "XMP\\bassopus.dll",
+                                      "XMP\\basswma.dll",
+                                      "XMP\\tags.dll",
+                                      "XMP\\sa.dat",
+                                      "XMP\\xinput1_3_mta.dll",
+                                      "XMP\\XInput9_1_0_mta.dll"};
 
     for (uint i = 0; i < NUMELMS(dataFiles); ++i)
     {

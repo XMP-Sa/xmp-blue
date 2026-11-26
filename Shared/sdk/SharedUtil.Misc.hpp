@@ -309,9 +309,9 @@ CDuplicateLineFilter<SReportLine> ms_ReportLineFilter;
 
 #ifdef MTA_CLIENT
 
-    #define PRODUCT_REGISTRY_PATH   "Software\\Multi Theft Auto: San Andreas All"  // HKLM
-    #define PRODUCT_COMMON_DATA_DIR "MTA San Andreas All"                          // C:\ProgramData
-    #define TROUBLE_URL1            "https://help.multitheftauto.com/sa/trouble/?v=_VERSION_&id=_ID_&tr=_TROUBLE_"
+    #define PRODUCT_REGISTRY_PATH   "Software\\XMP: San Andreas All"  // HKLM
+    #define PRODUCT_COMMON_DATA_DIR "XMP San Andreas All"                          // C:\ProgramData
+    #define TROUBLE_URL1            "https://github.com/XMP-Sa/xmp-launcher/issues"
 
     //
     // Output a UTF8 encoded messagebox
@@ -389,8 +389,8 @@ bool SharedUtil::IsUsableMtasaInstallRoot(const SString& strPath)
         return false;
 
     return FileExists(PathJoin(strPath, "Multi Theft Auto.exe")) || FileExists(PathJoin(strPath, "Multi Theft Auto_d.exe")) ||
-           FileExists(PathJoin(strPath, "mta", "core.dll")) || FileExists(PathJoin(strPath, "MTA", "core.dll")) ||
-           FileExists(PathJoin(strPath, "mta", "core_d.dll")) || FileExists(PathJoin(strPath, "MTA", "core_d.dll"));
+           FileExists(PathJoin(strPath, "XMP", "core.dll")) || FileExists(PathJoin(strPath, "xmp", "core.dll")) ||
+           FileExists(PathJoin(strPath, "XMP", "core_d.dll")) || FileExists(PathJoin(strPath, "xmp", "core_d.dll"));
 }
 
 // A path inside upcache\_<archive>_tmp_<n> is an auto-update extraction directory.

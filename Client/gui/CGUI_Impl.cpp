@@ -97,7 +97,7 @@ CGUI_Impl::CGUI_Impl(IDirect3DDevice9* pDevice)
 
     // Create a GUI system and get the windowmanager
     m_pRenderer = new CEGUI::DirectX9Renderer(pDevice, 0);
-    m_pSystem = new CEGUI::System(m_pRenderer, CEGUI::String(CalcMTASAPath(PathJoin("MTA", "logs", "CEGUI.log"))).data());
+    m_pSystem = new CEGUI::System(m_pRenderer, CEGUI::String(CalcMTASAPath(PathJoin("XMP", "logs", "CEGUI.log"))).data());
 
     // Get pointers to various stuff from CEGUI singletons
     m_pFontManager = CEGUI::FontManager::getSingletonPtr();
@@ -105,7 +105,7 @@ CGUI_Impl::CGUI_Impl(IDirect3DDevice9* pDevice)
     m_pSchemeManager = CEGUI::SchemeManager::getSingletonPtr();
     m_pWindowManager = CEGUI::WindowManager::getSingletonPtr();
 
-    SetDefaultGuiWorkingDirectory(CalcMTASAPath("MTA"));
+    SetDefaultGuiWorkingDirectory(CalcMTASAPath("XMP"));
 
     // Set logging to Informative for debug and Standard for release
 #if defined(_DEBUG) || defined(DEBUG)

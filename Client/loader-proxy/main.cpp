@@ -244,7 +244,7 @@ VOID OnGameLaunch()
     // Read from file
     std::array<wchar_t, 4096> gtaPathFromFile{};
     DWORD                     filePathLen = 0;
-    const fs::path            gtaPathFile = fs::current_path(ec) / L".." / L".." / L"MTA" / L"CEF" / L"gta_path.txt";
+    const fs::path            gtaPathFile = fs::current_path(ec) / L".." / L".." / L"XMP" / L"CEF" / L"gta_path.txt";
     if (FILE* pFile = nullptr; _wfopen_s(&pFile, gtaPathFile.c_str(), L"r") == 0 && pFile)
     {
         std::array<char, 8192> buffer{};
@@ -410,7 +410,7 @@ VOID OnGameLaunch()
         return;
     }
 
-    const fs::path mtaDirectory = mtaRootDirectory / "MTA";
+    const fs::path mtaDirectory = mtaRootDirectory / "XMP";
 
     if (!fs::is_directory(mtaDirectory, ec))
     {

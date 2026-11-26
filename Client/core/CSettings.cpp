@@ -4990,7 +4990,7 @@ void CSettings::CreateChatColorTab(eChatColorType eType, const char* szName, CGU
         pPreviewImage->SetPosition(CVector2D(10.0f, 10.0f));
         pPreviewImage->SetSize(CVector2D(fSize - 20.0f, fSize - 20.0f));
 
-        if (pPreviewImage->LoadFromFile(CalcMTASAPath("MTA\\cgui\\images\\radarset\\01.png")))
+        if (pPreviewImage->LoadFromFile(CalcMTASAPath("XMP\\cgui\\images\\radarset\\01.png")))
         {
             m_pChatColorPreview[eType] = pPreviewImage;
             UpdateChatColorPreview(eType);

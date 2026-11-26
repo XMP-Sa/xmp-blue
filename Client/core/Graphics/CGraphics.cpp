@@ -1525,7 +1525,7 @@ bool CGraphics::LoadStandardDXFonts()
 
     for (uint i = 0; i < m_FontResourceNames.size(); i++)
     {
-        SString strPathFilename = CalcMTASAPath("MTA\\cgui\\" + m_FontResourceNames[i]);
+        SString strPathFilename = CalcMTASAPath("XMP\\cgui\\" + m_FontResourceNames[i]);
         if (!AddFontResourceEx(strPathFilename, FR_PRIVATE, 0))
         {
             SString strFileMd5 = GenerateHashHexStringFromFile(EHashFunctionType::MD5, strPathFilename);
@@ -1632,7 +1632,7 @@ bool CGraphics::DestroyStandardDXFonts()
     // Remove our custom font resources (needs to be identical to LoadFonts)
     for (uint i = 0; i < m_FontResourceNames.size(); i++)
     {
-        RemoveFontResourceEx(CalcMTASAPath("MTA\\cgui\\" + m_FontResourceNames[i]), FR_PRIVATE, 0);
+        RemoveFontResourceEx(CalcMTASAPath("XMP\\cgui\\" + m_FontResourceNames[i]), FR_PRIVATE, 0);
     }
 
     // Release
@@ -1736,7 +1736,7 @@ void CGraphics::OnDeviceCreate(IDirect3DDevice9* pDevice)
     m_pScreenGrabber->OnDeviceCreate(pDevice);
     m_pPixelsManager->OnDeviceCreate(pDevice);
     m_ProgressSpinnerTexture =
-        GetRenderItemManager()->CreateTexture(CalcMTASAPath("MTA\\cgui\\images\\busy_spinner.png"), NULL, false, -1, -1, RFORMAT_DXT3, TADDRESS_CLAMP);
+        GetRenderItemManager()->CreateTexture(CalcMTASAPath("XMP\\cgui\\images\\busy_spinner.png"), NULL, false, -1, -1, RFORMAT_DXT3, TADDRESS_CLAMP);
     CPixels rectEdge = {CBuffer(g_rectEdgePixelsData, sizeof(g_rectEdgePixelsData))};
     m_RectangleEdgeTexture = GetRenderItemManager()->CreateTexture(nullptr, &rectEdge, false, 8, 8, RFORMAT_ARGB, TADDRESS_CLAMP);
     m_pAspectRatioConverter->Init(GetViewportHeight());

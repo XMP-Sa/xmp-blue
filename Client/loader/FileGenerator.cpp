@@ -168,7 +168,7 @@ auto FileGenerator::GetPatchBasePath() -> fs::path
 
 auto FileGenerator::GetPatchDiffPath() -> fs::path
 {
-    static const auto file = GetMTARootDirectory() / L"MTA" / L"data" / L"gta_sa_diff.dat";
+    static const auto file = GetMTARootDirectory() / L"XMP" / L"data" / L"gta_sa_diff.dat";
     return file;
 }
 

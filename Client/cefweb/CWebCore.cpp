@@ -100,7 +100,7 @@ bool CWebCore::Initialise(bool gpuEnabled)
         return false;
     }
 
-    SString strMTADir = PathJoin(strBaseDir, "MTA");
+    SString strMTADir = PathJoin(strBaseDir, "XMP");
 
 #ifndef MTA_DEBUG
     SString strLauncherPath = PathJoin(strMTADir, "CEF", "CEFLauncher.exe");

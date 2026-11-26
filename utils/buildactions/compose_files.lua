@@ -4,7 +4,7 @@ premake.modules.compose_files = {}
 
 -- Config variables
 local BIN_DIR = "Bin"
-local DATA_DIR = "Shared/data/MTA San Andreas"
+local DATA_DIR = "Shared/data/XMP"
 local OUTPUT_DIR = "InstallFiles"
 local WINDOWS = os.host() == "windows"
 
@@ -17,7 +17,7 @@ newaction {
 
 		-- Copy data files
 		if WINDOWS then
-			os.copydir(DATA_DIR.."/MTA", OUTPUT_DIR.."/MTA")
+			os.copydir(DATA_DIR.."/XMP", OUTPUT_DIR.."/XMP")
 			os.copydir(DATA_DIR.."/skins", OUTPUT_DIR.."/skins")
 			os.copydir(DATA_DIR.."/server/mods/deathmatch", OUTPUT_DIR.."/server/mods/deathmatch", "*.dll")
 			os.copydir(DATA_DIR.."/redist", OUTPUT_DIR.."/redist")
@@ -37,7 +37,7 @@ newaction {
 			os.copydir(BIN_DIR, OUTPUT_DIR, "**.dat")
 		else
 			os.copydir(BIN_DIR, OUTPUT_DIR, "**.so")
-			os.copydir(BIN_DIR, OUTPUT_DIR, "**mta-server*")
+			os.copydir(BIN_DIR, OUTPUT_DIR, "**xmp-server*")
 		end
 
 		-- Copy publicsdk

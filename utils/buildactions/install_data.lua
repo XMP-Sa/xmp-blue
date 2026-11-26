@@ -4,7 +4,7 @@ premake.modules.install_data = {}
 
 -- Config variables
 local BIN_DIR = "Bin"
-local DATA_DIR = "Shared/data/MTA San Andreas"
+local DATA_DIR = "Shared/data/XMP"
 local BASE_URL = "https://mirror-cdn.multitheftauto.com/bdata/"
 
 local NET_PATH_X86_WIN   = BASE_URL .. "net.dll"
@@ -75,7 +75,7 @@ newaction {
 			local success = http.download_print_errors(NET_PATH_X86_WIN, BIN_DIR.."/server/net.dll")
 			success = success and http.download_print_errors(NET_PATH_X64_WIN, BIN_DIR.."/server/x64/net.dll")
 			success = success and http.download_print_errors(NET_PATH_ARM64_WIN, BIN_DIR.."/server/arm64/net.dll")
-			success = success and http.download_print_errors(NETC_PATH_WIN, BIN_DIR.."/MTA/netc.dll")
+			success = success and http.download_print_errors(NETC_PATH_WIN, BIN_DIR.."/XMP/netc.dll")
 
 			-- A download failed
 			if not success then
@@ -83,7 +83,7 @@ newaction {
 				return
 			end
 
-			if not os.copyfile(BIN_DIR.."/MTA/netc.dll", BIN_DIR.."/MTA/netc_d.dll") then
+			if not os.copyfile(BIN_DIR.."/XMP/netc.dll", BIN_DIR.."/XMP/netc_d.dll") then
 				errormsg("ERROR: Could not copy netc.dll")
 				os.exit(1)
 				return

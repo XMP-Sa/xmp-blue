@@ -2,7 +2,7 @@ project "Launcher"
 	language "C++"
 	kind "ConsoleApp"
 	targetdir(buildpath("server"))
-	targetname "mta-server"
+	targetname "xmp-server"
 	clangtidy "On"
 
 	includedirs {
@@ -24,7 +24,7 @@ project "Launcher"
 	}
 
 	filter "system:windows"
-		targetname "MTA Server"
+		targetname "XMP Server"
 		staticruntime "On"
 		-- Server requires Windows 10+ (cpp-httplib)
 		defines { "_WIN32_WINNT=0x0A00" }
@@ -39,22 +39,22 @@ project "Launcher"
 		linkoptions { "-pthread", "-rdynamic" }
 
 	filter "platforms:arm"
-		targetname "mta-server-arm"
+		targetname "xmp-server-arm"
 
 	filter "platforms:arm64"
-		targetname "mta-server-arm64"
+		targetname "xmp-server-arm64"
 
 	filter { "system:linux", "platforms:x64" }
-		targetname "mta-server64"
+		targetname "xmp-server64"
 
 	filter { "system:windows", "platforms:x64" }
-		targetname "MTA Server64"
+		targetname "XMP Server64"
 
 	filter { "system:windows", "platforms:arm" }
-		targetname "MTA Server ARM"
+		targetname "XMP Server ARM"
 
 	filter { "system:windows", "platforms:arm64" }
-		targetname "MTA Server ARM64"
+		targetname "XMP Server ARM64"
 
 	-- 32-bit Windows server is no longer supported
 	filter { "system:windows", "platforms:x86" }

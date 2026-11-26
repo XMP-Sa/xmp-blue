@@ -118,7 +118,7 @@ void CLanguageSelector::CreateGUI(CGUIElement* pMainMenuCanvas)
         pIcon->SetPosition(vecIconPos);
         pIcon->SetSize(CVector2D(LANGUAGE_ICON_SIZE_X, LANGUAGE_ICON_SIZE_Y));
         pIcon->SetZOrderingEnabled(false);
-        pIcon->LoadFromFile(CalcMTASAPath("MTA\\cgui\\images\\the_language_icon.png"));
+        pIcon->LoadFromFile(CalcMTASAPath("XMP\\cgui\\images\\the_language_icon.png"));
 
         CGUILabel* pLabel = reinterpret_cast<CGUILabel*>(g_pCore->GetGUI()->CreateLabel(m_pButtonWindow));
         pLabel->SetPosition(vecLabelPos);

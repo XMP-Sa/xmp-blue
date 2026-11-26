@@ -68,7 +68,7 @@ project "Client Core"
 	}
 
 	prebuildcommands {
-		"%[%{!wks.location}/../utils/gen_language_list.exe] %[%{!wks.location}/../Shared/data/MTA San Andreas/MTA/locale] %[languages.generated.h]"
+		"%[%{!wks.location}/../utils/gen_language_list.exe] %[%{!wks.location}/../Shared/data/XMP/XMP/locale] %[languages.generated.h]"
 	}
 
 	filter "architecture:not x86"

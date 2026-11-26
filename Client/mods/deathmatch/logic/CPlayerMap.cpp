@@ -117,7 +117,7 @@ CPlayerMap::~CPlayerMap()
 void CPlayerMap::CreateOrUpdateMapTexture()
 {
     const std::uint32_t mapSize = MAP_IMAGE_SIZES[m_playerMapImageIndex];
-    const SString       fileName("MTA\\cgui\\images\\map_%d.png", mapSize);
+    const SString       fileName("XMP\\cgui\\images\\map_%d.png", mapSize);
 
     auto* newTexture = g_pCore->GetGraphics()->GetRenderItemManager()->CreateTexture(CalcMTASAPath(fileName), nullptr, false, mapSize, mapSize, RFORMAT_DXT1);
     if (!newTexture)
@@ -144,7 +144,7 @@ void CPlayerMap::UpdateOrRevertMapTexture(std::size_t newImageIndex)
 
 void CPlayerMap::CreatePlayerBlipTexture()
 {
-    m_playerMarkerTexture = g_pCore->GetGraphics()->GetRenderItemManager()->CreateTexture(CalcMTASAPath("MTA\\cgui\\images\\radarset\\02.png"));
+    m_playerMarkerTexture = g_pCore->GetGraphics()->GetRenderItemManager()->CreateTexture(CalcMTASAPath("XMP\\cgui\\images\\radarset\\02.png"));
     if (!m_playerMarkerTexture)
         throw std::runtime_error("Failed to load player blip image");
 }
@@ -238,7 +238,7 @@ void CPlayerMap::ClearMovementFlags()
 void CPlayerMap::CreateMarkerTextures()
 {
     m_markerTextureList.clear();
-    SString strRadarSetDirectory = CalcMTASAPath("MTA\\cgui\\images\\radarset\\");
+    SString strRadarSetDirectory = CalcMTASAPath("XMP\\cgui\\images\\radarset\\");
 
     // Load the 3 shapes
     const char* shapeFileNames[] = {"square.png", "up.png", "down.png"};

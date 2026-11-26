@@ -1,7 +1,7 @@
 project "Loader Proxy"
 	language "C++"
 	kind "SharedLib"
-	targetname "mtasa"
+	targetname "xmp"
 	targetdir(buildpath("mta"))
 	clangtidy "On"
 

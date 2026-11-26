@@ -42,7 +42,7 @@ inline constexpr int CEF_INIT_ERROR_DLL_LOAD_FAILED = -2;
 
 inline constexpr DWORD       CEF_PARENT_CHECK_INTERVAL = 1000;
 inline constexpr const char* CEF_DLL_NAME = "libcef.dll";
-inline constexpr const char* CEF_MTA_SUBDIR = "MTA";
+inline constexpr const char* CEF_MTA_SUBDIR = "XMP";
 
 inline constexpr DWORD PARENT_CHECK_ERROR_NO_QUERY_FUNC = 1;
 inline constexpr DWORD PARENT_CHECK_ERROR_QUERY_FAILED = 2;

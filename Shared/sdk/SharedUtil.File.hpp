@@ -660,7 +660,7 @@ SString SharedUtil::GetMTADataPathCommon()
 
 SString SharedUtil::GetMTATempPath()
 {
-    return PathJoin(GetSystemTempPath(), "MTA" + GetMajorVersionString());
+    return PathJoin(GetSystemTempPath(), "XMP" + GetMajorVersionString());
 }
 
 // C:\Program Files\gta_sa.exe
