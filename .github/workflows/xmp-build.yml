@@ -96,6 +96,17 @@ jobs:
       - name: Install server data files
         run: ./linux-install-data.sh
 
+      # premake's built-in https (mbedTLS) cannot verify certificates inside
+      # the build container, so install_data silently loses the net module
+      # downloads. Fetch them with curl — without x64/net.so the server
+      # cannot start at all ("Loading network library failed").
+      - name: Fetch net modules (curl)
+        run: |
+          BASE=https://mirror-cdn.multitheftauto.com/bdata
+          mkdir -p Bin/server/x64
+          curl -fsSL "$BASE/net_64.so" -o Bin/server/x64/net.so
+          ls -la Bin/server/x64/net.so
+
       - name: Smoke test (boot + ASE query)
         run: |
           cat > /tmp/ase_check.c <<'EOF'
