@@ -100,7 +100,7 @@ int main(int argc, char* argv[])
 #ifdef WIN32
     if (!IsWindows10OrGreater())
     {
-        printf("This version of MTA requires Windows 10 or later\n");
+        printf("This version of XMP Server requires Windows 10 or later\n");
 
         // Wait for a key then exit
         printf("Press enter to continue...\n");

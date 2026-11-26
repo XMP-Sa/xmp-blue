@@ -14,7 +14,7 @@ using namespace tinygettext;
 #include <core/CLocalizationInterface.h>
 #include "CLanguage.h"
 #include <memory>
-#define MTA_LOCALE_DIR "MTA/locale/"
+#define MTA_LOCALE_DIR "XMP/locale/"
 
 #pragma once
 

@@ -292,7 +292,7 @@ static bool TerminateFileLockingProcesses(const SString& absolutePath, const SSt
             nullptr,
             SString(_("The file '%s' is currently locked by %zu processes.\n\nDo you want to terminate the following processes and continue updating?\n\n%s"),
                     displayName.c_str(), processIds.size(), nameList.c_str()),
-            "MTA: San Andreas", MB_CANCELTRYCONTINUE | MB_ICONQUESTION | MB_TOPMOST);
+            "XMP Client", MB_CANCELTRYCONTINUE | MB_ICONQUESTION | MB_TOPMOST);
 
         processIds = GetProcessListUsingFile(filePath);
         const bool currentProcessLocksFileAfterPrompt = RemoveCurrentProcessId();
@@ -504,7 +504,7 @@ static auto RunRollback(std::vector<InstallableFile>& files) -> size_t
                        SString(_("Your installation may be corrupt now.\n\n%zu out of %zu files could not be restored from the backup.\n\nYou should "
                                  "reinstall XMP from github.com/XMP-Sa\nor try running the update with administrator rights."),
                                disasterCounter, files.size()),
-                       "MTA: San Andreas", MB_OK | MB_ICONERROR | MB_TOPMOST);
+                       "XMP Client", MB_OK | MB_ICONERROR | MB_TOPMOST);
 
         AddReportLog(5055, SString("RunRollback: Rollback failed for %zu out of %zu files", disasterCounter, files.size()));
         OutputDebugLine(SString("RunRollback: Rollback failed for %zu out of %zu files", disasterCounter, files.size()));
@@ -618,7 +618,7 @@ static int RunInstall()
 
     if (!DirectoryExists(targetRoot))
     {
-        AddReportLog(5055, SString("RunInstall: MTA directory does not exist: '%s'", targetRoot.c_str()));
+        AddReportLog(5055, SString("RunInstall: XMP directory does not exist: '%s'", targetRoot.c_str()));
         return 1;
     }
 
@@ -896,7 +896,7 @@ static int RunInstall()
 bool InstallFiles(bool showProgressWindow)
 {
     if (showProgressWindow)
-        StartPseudoProgress(g_hInstance, "MTA: San Andreas", _("Installing update..."));
+        StartPseudoProgress(g_hInstance, "XMP Client", _("Installing update..."));
 
     bool success = false;
 
@@ -988,7 +988,7 @@ SString CheckOnRestartCommand()
 
             // Start progress bar
             if (!strParameters.Contains("hideprogress"))
-                StartPseudoProgress(g_hInstance, "MTA: San Andreas", _("Extracting files..."));
+                StartPseudoProgress(g_hInstance, "XMP Client", _("Extracting files..."));
 
             // Try to extract the files
             bool success = ExtractFiles(strFile, /* withManifest */ true);

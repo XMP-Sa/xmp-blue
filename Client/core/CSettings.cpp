@@ -986,7 +986,7 @@ void CSettings::CreateGUI()
     /**
      *  Audio tab
      **/
-    fIndentX = pManager->CGUI_GetMaxTextExtent("default-normal", _("Master volume:"), _("Radio volume:"), _("SFX volume:"), _("MTA volume:"),
+    fIndentX = pManager->CGUI_GetMaxTextExtent("default-normal", _("Master volume:"), _("Radio volume:"), _("SFX volume:"), _("XMP volume:"),
                                                _("Voice volume:"), _("Play mode:"));
 
     m_pAudioGeneralLabel = reinterpret_cast<CGUILabel*>(pManager->CreateLabel(pTabAudio, _("General")));
@@ -1061,7 +1061,7 @@ void CSettings::CreateGUI()
     FinalizeSliderRow(tabPanelSize.fX, m_pAudioSFXVolume, m_pLabelSFXVolumeValue, 160.0f, kSliderLabelSpacing, m_pLabelSFXVolume);
 
     vecTemp.fX = 11;
-    m_pLabelMTAVolume = reinterpret_cast<CGUILabel*>(pManager->CreateLabel(pTabAudio, _("MTA volume:")));
+    m_pLabelMTAVolume = reinterpret_cast<CGUILabel*>(pManager->CreateLabel(pTabAudio, _("XMP volume:")));
     m_pLabelMTAVolume->SetPosition(CVector2D(vecTemp.fX, vecTemp.fY + 29.0f));
     m_pLabelMTAVolume->GetPosition(vecTemp, false);
     m_pLabelMTAVolume->AutoSize();
@@ -1168,7 +1168,7 @@ void CSettings::CreateGUI()
     m_pCheckBoxMuteSFX->GetPosition(vecTemp, false);
     m_pCheckBoxMuteSFX->AutoSize(NULL, 20.0f);
 
-    m_pCheckBoxMuteMTA = reinterpret_cast<CGUICheckBox*>(pManager->CreateCheckBox(pTabAudio, _("Mute MTA sounds when minimized"), true));
+    m_pCheckBoxMuteMTA = reinterpret_cast<CGUICheckBox*>(pManager->CreateCheckBox(pTabAudio, _("Mute XMP sounds when minimized"), true));
     m_pCheckBoxMuteMTA->SetPosition(CVector2D(vecTemp.fX, vecTemp.fY + 20.0f));
     m_pCheckBoxMuteMTA->GetPosition(vecTemp, false);
     m_pCheckBoxMuteMTA->AutoSize(NULL, 20.0f);
@@ -5869,7 +5869,7 @@ bool CSettings::OnDPIAwareClick(CGUIElement* pElement)
 
         SStringX strMessage(
             _("Enabling DPI awareness is an experimental feature and\n"
-              "we only recommend it when you play MTA:SA on a scaled monitor.\n"
+              "we only recommend it when you play XMP on a scaled monitor.\n"
               "You may experience graphical issues if you enable this option."
               "\n\nAre you sure you want to enable this option?"));
         CQuestionBox* pQuestionBox = CCore::GetSingleton().GetLocalGUI()->GetMainMenu()->GetQuestionWindow();
@@ -6121,7 +6121,7 @@ bool CSettings::OnShowAdvancedSettingDescription(CGUIElement* pElement)
     else if (pLabel && pLabel == m_pSingleDownloadLabel || pComboBox && pComboBox == m_pSingleDownloadCombo)
         strText = std::string(_("Single connection:")) + " " + std::string(_("Switch on to use only one connection when downloading."));
     else if (pLabel && pLabel == m_pPacketTagLabel || pComboBox && pComboBox == m_pPacketTagCombo)
-        strText = std::string(_("Packet tag:")) + " " + std::string(_("Tag network packets to help ISPs identify MTA traffic."));
+        strText = std::string(_("Packet tag:")) + " " + std::string(_("Tag network packets to help ISPs identify XMP traffic."));
     else if (pLabel && pLabel == m_pProgressAnimationLabel || pComboBox && pComboBox == m_pProgressAnimationCombo)
         strText = std::string(_("Progress animation:")) + " " + std::string(_("Spinning circle animation at the bottom of the screen"));
     else if (pLabel && pLabel == m_pDebugSettingLabel || pComboBox && pComboBox == m_pDebugSettingCombo)

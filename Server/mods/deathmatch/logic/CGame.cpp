@@ -818,7 +818,7 @@ bool CGame::Start(int iArgumentCount, char* szArguments[])
     // Show the server header
     CLogger::LogPrintfNoStamp(
         "==================================================================\n"
-        "= Multi Theft Auto: San Andreas v%s\n"
+        "= XMP Server v%s\n"
         "==================================================================\n"
         "= Server name      : %s\n"
         "= Server IP address: %s\n"

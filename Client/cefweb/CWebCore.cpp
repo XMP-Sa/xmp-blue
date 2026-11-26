@@ -94,8 +94,8 @@ bool CWebCore::Initialise(bool gpuEnabled)
 
     if (strBaseDir.empty())
     {
-        g_pCore->GetConsole()->Printf("CEF initialization skipped - Unable to determine MTA base directory");
-        AddReportLog(8000, "CEF initialization skipped - Unable to determine MTA base directory");
+        g_pCore->GetConsole()->Printf("CEF initialization skipped - Unable to determine XMP base directory");
+        AddReportLog(8000, "CEF initialization skipped - Unable to determine XMP base directory");
         m_bInitialised = false;
         return false;
     }
@@ -245,7 +245,7 @@ bool CWebCore::Initialise(bool gpuEnabled)
     fs::current_path(fs::path(FromUTF8(strMTADir)), ec);
     if (ec)
     {
-        AddReportLog(8026, SString("Failed to change CWD to MTA dir: %s", ec.message().c_str()));
+        AddReportLog(8026, SString("Failed to change CWD to XMP dir: %s", ec.message().c_str()));
         m_bInitialised = false;
         return false;
     }

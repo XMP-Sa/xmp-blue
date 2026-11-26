@@ -776,7 +776,7 @@ void CMemStats::CreateTables()
         CDxTable& table = m_TableList.back();
         table.SetColumnWidths("110,80:R,80:R");
         table.SetNumberColors("^1", strNumberColorsMtaVidMem);
-        table.AddRow(HEADER1("MTA vid memory") "|" HEADER1("Change KB") "|" HEADER1("Using KB"));
+        table.AddRow(HEADER1("XMP vid memory") "|" HEADER1("Change KB") "|" HEADER1("Using KB"));
         table.AddRow(SString("FreeForMTA|^1~.%s|%s", *FormatNumberWithCommas(m_MemStatsDelta.dxStatus.videoMemoryKB.iFreeForMTA),
                              *FormatNumberWithCommas(m_MemStatsNow.dxStatus.videoMemoryKB.iFreeForMTA)));
         table.AddRow(SString("Fonts|^1~.%s|%s", *FormatNumberWithCommas(m_MemStatsDelta.dxStatus.videoMemoryKB.iUsedByFonts),

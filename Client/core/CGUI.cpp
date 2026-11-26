@@ -99,7 +99,7 @@ void CLocalGUI::SetSkin(const char* szName)
         {
             pGUI->SetSkin(DEFAULT_SKIN_NAME);
 
-            error = "The skin '" + std::string(szName) + "' that you have selected could not be loaded. MTA is now using the default skin instead.";
+            error = "The skin '" + std::string(szName) + "' that you have selected could not be loaded. XMP is now using the default skin instead.";
 
             CVARS_SET("current_skin", std::string(DEFAULT_SKIN_NAME));
             m_LastSkinName = DEFAULT_SKIN_NAME;
@@ -109,7 +109,7 @@ void CLocalGUI::SetSkin(const char* szName)
             // Mark both layers' dialog flags first, so a nested fault exits instead of stacking.
             CLocalGUI::SetFaultDialogOpen(true);
             pGUI->SetFatalFaultDialogOpen(true);
-            MessageBoxUTF8(0, _("The skin you selected could not be loaded, and the default skin also could not be loaded, please reinstall MTA."),
+            MessageBoxUTF8(0, _("The skin you selected could not be loaded, and the default skin also could not be loaded, please reinstall XMP."),
                            _("Error") + _E("CC51"), MB_OK | MB_ICONERROR | MB_TOPMOST);
             TerminateProcess(GetCurrentProcess(), 9);
         }
@@ -190,7 +190,7 @@ void CLocalGUI::CreateWindows(bool bGameIsAlreadyLoaded)
 
     // Create the overlayed version labels
     CVector2D ScreenSize = pGUI->GetResolution();
-    SString   strText = "MTA:SA " MTA_DM_BUILDTAG_SHORT;
+    SString   strText = "XMP " MTA_DM_BUILDTAG_SHORT;
     if (_NETCODE_VERSION_BRANCH_ID != 0x04)
         strText += SString(" (%X)", _NETCODE_VERSION_BRANCH_ID);
     m_pLabelVersionTag = reinterpret_cast<CGUILabel*>(pGUI->CreateLabel(strText));
@@ -301,7 +301,7 @@ void CLocalGUI::TryShowRestartPrompt()
     if (pQuestionBox->IsVisible())
         return;
 
-    SString strMessage = _("Some settings will be changed when you next start MTA");
+    SString strMessage = _("Some settings will be changed when you next start XMP");
     strMessage += _("\n\nDo you want to restart now?");
     pQuestionBox->Reset();
     pQuestionBox->SetTitle(_("RESTART REQUIRED"));

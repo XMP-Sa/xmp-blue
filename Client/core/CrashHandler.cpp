@@ -1764,7 +1764,7 @@ static bool ConfigureWerLocalDumps()
             HRESULT hr = pfnWerRegisterAppLocalDump(dumpPathW.c_str());
             if (SUCCEEDED(hr))
             {
-                SafeDebugOutput("CrashHandler: WER app-local dump registered to MTA dumps folder\n");
+                SafeDebugOutput("CrashHandler: WER app-local dump registered to XMP dumps folder\n");
                 SafeDebugOutput("CrashHandler: Fail-fast exceptions (0xC0000409, 0xC0000374) will now generate dumps in mta\\dumps\\private\n");
                 return true;
             }

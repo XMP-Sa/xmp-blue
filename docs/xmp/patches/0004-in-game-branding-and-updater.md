@@ -22,6 +22,12 @@ launch warning, CEF user agent, tray tooltip, credits heading/window,
 version string and the core AppUserModelID now say **XMP / XMP Client**.
 The legacy LocalAppData path used only as a read-only migration source is
 intentionally unchanged.
+The same treatment covers the in-game settings labels, game window title,
+crash dialogs, loader dialogs, local-server defaults and the XMP Server
+console header. The local-server launcher now looks for `XMP Server64.exe`
+(matching Patch 0003's server target names). Localization loads from
+`XMP/locale/`, and the process-base-dir walk accepts an `XMP` runtime
+folder as well as the legacy one.
 Translation templates (`locale/*.po`) still contain the old msgids; they
 fall back to the new English strings until the next Crowdin sync.
 
@@ -41,6 +47,9 @@ Launcher repo instead of multitheftauto.com/news.
   (functional dependency for public-server compatibility, not branding).
 - Internal identifiers (`MTA_*` macros, class names) — invisible to users,
   renaming them would make upstream merges unmaintainable.
+- The HTTP user-agent sent to game servers and the legacy LocalAppData
+  migration source path — server-facing identification / migration plumbing,
+  not product branding.
 
 ## Verification
 - Windows client compiles on CI (XMP Build).

@@ -1862,7 +1862,7 @@ void MaybeShowCopySettingsDialog()
                             "\n"
                             "Do you want to copy your settings from %s ?"),
                           *strCurrentVersion, *strPreviousVersion);
-    int iResponse = MessageBoxUTF8(NULL, strMessage, "MTA: San Andreas", MB_YESNO | MB_ICONQUESTION | MB_TOPMOST);
+    int iResponse = MessageBoxUTF8(NULL, strMessage, "XMP Client", MB_YESNO | MB_ICONQUESTION | MB_TOPMOST);
     if (iResponse != IDYES)
         return;
 
@@ -2072,7 +2072,7 @@ void BsodDetectionPreLaunch()
         {
             // Ask user to confirm
             int iResponse =
-                MessageBoxUTF8(NULL, _("Did your computer restart when playing MTA:SA?"), "MTA: San Andreas", MB_YESNO | MB_ICONQUESTION | MB_TOPMOST);
+                MessageBoxUTF8(NULL, _("Did your computer restart when playing XMP?"), "XMP Client", MB_YESNO | MB_ICONQUESTION | MB_TOPMOST);
             if (iResponse == IDYES)
             {
                 SetApplicationSetting("diagnostics", "user-confirmed-bsod-time", strMinidumpTime);

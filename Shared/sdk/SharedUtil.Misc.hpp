@@ -201,7 +201,7 @@ static void InitializeProcessBaseDir(SString& strProcessBaseDir)
                                 // Convert to lowercase for case-insensitive comparison
                                 std::transform(folderName.begin(), folderName.end(), folderName.begin(), ::towlower);
 
-                                if (folderName == L"mta")
+                                if (folderName == L"mta" || folderName == L"xmp")
                                 {
                                     const SString strCurrentPath = ToUTF8(currentPath.wstring());
                                     const bool    bHasKnownModule =
@@ -218,7 +218,7 @@ static void InitializeProcessBaseDir(SString& strProcessBaseDir)
                                     }
 
                                     // Found MTA folder - base directory is its parent
-                                    // Stop searching immediately to avoid finding outer "MTA" folders (e.g user with custom intall dir)
+                                    // Stop searching immediately to avoid finding outer "XMP" folders (e.g user with custom intall dir)
                                     if (currentPath.has_parent_path())
                                     {
                                         strProcessBaseDir = ToUTF8(currentPath.parent_path().wstring());
@@ -547,7 +547,7 @@ SString SharedUtil::GetMTASABaseDir()
                     AddReportLog(1042, SString("GetMTASABaseDir: ignoring unusable registry path '%s'", strFirstNonEmptyRegistryValue.c_str()), 1);
                 }
                 AddReportLog(1042, "GetMTASABaseDir: unable to resolve install root", 1);
-                MessageBoxUTF8(0, _("Multi Theft Auto has not been installed properly, please reinstall."), _("Error") + _E("U01"),
+                MessageBoxUTF8(0, _("XMP has not been installed properly, please reinstall."), _("Error") + _E("U01"),
                                MB_OK | MB_ICONERROR | MB_TOPMOST);
                 TerminateProcess(GetCurrentProcess(), 9);
             }
@@ -1677,7 +1677,7 @@ bool SharedUtil::ProcessPendingBrowseToSolution()
     ClearPendingBrowseToSolution();
 
     SString strTitle;
-    strTitle.Format("MTA: San Andreas %s   (CTRL+C to copy)", strErrorCode.c_str());
+    strTitle.Format("XMP Client %s   (CTRL+C to copy)", strErrorCode.c_str());
     // Show message if set, ask question if required, and then launch URL
     if (iFlags & ASK_GO_ONLINE)
     {
@@ -1698,7 +1698,7 @@ bool SharedUtil::ProcessPendingBrowseToSolution()
     MessageBoxUTF8(
         NULL,
         _("Your browser will now display a web page with some help infomation.\n\n(If the page fails to load, paste (CTRL-V) the URL into your web browser)"),
-        "MTA: San Andreas", MB_OK | MB_ICONINFORMATION | MB_TOPMOST);
+        "XMP Client", MB_OK | MB_ICONINFORMATION | MB_TOPMOST);
 
     SString strQueryURL = GetApplicationSetting("trouble-url");
     if (strQueryURL == "")

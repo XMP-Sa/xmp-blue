@@ -389,7 +389,7 @@ VOID OnGameLaunch()
     {
         if (bIsCefSubprocess && mtaBasePathLen > 0 && mtaBasePathLen < mtaBasePathFromCmdLine.size())
         {
-            AddLaunchLog("Using MTA base path from CEF command-line switch: %S", mtaBasePathFromCmdLine.data());
+            AddLaunchLog("Using XMP base path from CEF command-line switch: %S", mtaBasePathFromCmdLine.data());
             return fs::path{mtaBasePathFromCmdLine.data()};
         }
         else if (!bIsCefSubprocess && !launcherPath.empty())
@@ -398,15 +398,15 @@ VOID OnGameLaunch()
         }
         else
         {
-            AddLaunchLog("ERROR: Unable to determine MTA base path");
+            AddLaunchLog("ERROR: Unable to determine XMP base path");
             return fs::path{};
         }
     }();
 
     if (mtaRootDirectory.empty())
     {
-        AddLaunchLog("MTA root directory is empty - cannot continue");
-        DisplayErrorMessageBox(MakeLauncherError(L"Unable to determine MTA installation directory."), L"CL55");
+        AddLaunchLog("XMP root directory is empty - cannot continue");
+        DisplayErrorMessageBox(MakeLauncherError(L"Unable to determine XMP installation directory."), L"CL55");
         return;
     }
 
@@ -414,8 +414,8 @@ VOID OnGameLaunch()
 
     if (!fs::is_directory(mtaDirectory, ec))
     {
-        AddLaunchLog("MTA subdirectory not found (%d): %s", ec.value(), ec.message().c_str());
-        std::wstring message = L"MTA directory does not exist or user is unauthorized:\n" + mtaDirectory.wstring();
+        AddLaunchLog("XMP subdirectory not found (%d): %s", ec.value(), ec.message().c_str());
+        std::wstring message = L"XMP directory does not exist or user is unauthorized:\n" + mtaDirectory.wstring();
         DisplayErrorMessageBox(MakeMissingFilesError(AppendSystemError(message, ec.value())), L"CL55");
         return;
     }
@@ -492,14 +492,14 @@ VOID OnGameLaunch()
         DisplayErrorMessageBox(
             L"Loading debug core has failed."
             L"\n\n"
-            L"Please ensure that your MTA:SA build was successful and that "
+            L"Please ensure that your XMP build was successful and that "
             L"you executed win-install-data.bat to copy dependencies to the output directory.",
             L"CL24");
 #else
         DisplayErrorMessageBox(
             L"Loading core has failed."
             L"\n\n"
-            L"Please ensure that your MTA:SA installation is complete "
+            L"Please ensure that your XMP installation is complete "
             L"and that the latest DirectX is correctly installed.",
             L"CL24");
 #endif
@@ -609,7 +609,7 @@ auto SetImportProcAddress(const char* moduleName, const char* procedureName, FAR
  */
 int DisplayMessageBox(const std::wstring& message, const std::wstring& errorCode, UINT flags)
 {
-    std::wstring caption = L"MTA: San Andreas  [" + errorCode + L"]   (CTRL+C to copy)";
+    std::wstring caption = L"XMP Client  [" + errorCode + L"]   (CTRL+C to copy)";
     std::wstring extended = message;
     extended +=
         L"\n\nIf you are unable to resolve this issue on your own, "
@@ -900,7 +900,7 @@ auto MakeLauncherError(std::wstring message) -> std::wstring
 
     message +=
         L"Please launch the game through the XMP Client executable. "
-        L"You can find the launcher either on your desktop or in the MTA:SA installation directory.";
+        L"You can find the launcher either on your desktop or in the XMP installation directory.";
 
     return message;
 }
@@ -915,7 +915,7 @@ auto MakeMissingFilesError(std::wstring message) -> std::wstring
         message += L"\n\n";
 
     message +=
-        L"Please ensure that both your MTA:SA and Windows installation are not missing files "
+        L"Please ensure that both your XMP and Windows installation are not missing files "
         L"and your user is not lacking any permission to access these directories";
 
     return message;

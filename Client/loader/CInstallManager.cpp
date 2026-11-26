@@ -1157,7 +1157,7 @@ SString CInstallManager::_InstallFiles()
         else
             AddReportLog(5049, SString("_InstallFiles: Couldn't install files %s", ""));
 
-        m_strAdminReason = _("Install updated MTA:SA files");
+        m_strAdminReason = _("Install updated XMP files");
         return "fail";
     }
     else
@@ -1262,13 +1262,13 @@ SString CInstallManager::_PrepareLaunchLocation()
             {
                 if (fs::is_regular_file(sourcePath, ec))
                 {
-                    SString strMessage(_("MTA:SA cannot launch because copying a file failed:"));
+                    SString strMessage(_("XMP cannot launch because copying a file failed:"));
                     strMessage += "\n\n" + UTF8FilePath(targetPath);
                     BrowseToSolution("copy-files", ASK_GO_ONLINE, strMessage);
                 }
                 else
                 {
-                    SString strMessage(_("MTA:SA cannot launch because an MTA:SA file is incorrect or missing:"));
+                    SString strMessage(_("XMP cannot launch because an XMP file is incorrect or missing:"));
                     strMessage += "\n\n" + UTF8FilePath(sourcePath);
                     BrowseToSolution("mta-datafiles-missing", ASK_GO_ONLINE, strMessage);
                 }
@@ -1277,7 +1277,7 @@ SString CInstallManager::_PrepareLaunchLocation()
             }
             else
             {
-                m_strAdminReason = _("Copy MTA:SA files");
+                m_strAdminReason = _("Copy XMP files");
                 return "fail";
             }
         }
@@ -1301,7 +1301,7 @@ SString CInstallManager::_ProcessGtaPatchCheck()
     if (!FileGenerator::IsPatchBase(patchBasePath))
     {
         AddReportLog(5053, SString("_ProcessGtaPatchCheck: patch base invalid '%ls'", patchBasePath.wstring().c_str()));
-        SString strMessage(_("MTA:SA cannot launch because a GTA:SA file is incorrect or missing:"));
+        SString strMessage(_("XMP cannot launch because a GTA:SA file is incorrect or missing:"));
         strMessage += "\n\n" + UTF8FilePath(patchBasePath);
         BrowseToSolution("gengta_pakfiles", ASK_GO_ONLINE, strMessage);
         return "quit";
@@ -1310,7 +1310,7 @@ SString CInstallManager::_ProcessGtaPatchCheck()
     if (!FileGenerator::IsPatchDiff(patchDiffPath))
     {
         AddReportLog(5053, SString("_ProcessGtaPatchCheck: patch diff invalid '%ls'", patchDiffPath.wstring().c_str()));
-        SString strMessage(_("MTA:SA cannot launch because an MTA:SA file is incorrect or missing:"));
+        SString strMessage(_("XMP cannot launch because an XMP file is incorrect or missing:"));
         strMessage += "\n\n" + UTF8FilePath(patchDiffPath);
         BrowseToSolution("mta-datafiles-missing", ASK_GO_ONLINE, strMessage);
         return "quit";
@@ -1380,7 +1380,7 @@ SString CInstallManager::_ProcessGtaDllCheck()
 
         if (isAdmin)
         {
-            SString strMessage(_("MTA:SA cannot launch because a GTA:SA file is incorrect or missing:"));
+            SString strMessage(_("XMP cannot launch because a GTA:SA file is incorrect or missing:"));
             strMessage += "\n\n" + UTF8FilePath(dependecyPath);
             BrowseToSolution(SString("gendep_error&name=%s", dependency.fileName), ASK_GO_ONLINE, strMessage);
             return "quit";
@@ -1435,11 +1435,11 @@ SString CInstallManager::_ProcessGtaVersionCheck()
 
             if (isAdmin)
             {
-                SString strMessage(_("MTA:SA cannot launch because the GTA:SA executable is incorrect or missing:"));
+                SString strMessage(_("XMP cannot launch because the GTA:SA executable is incorrect or missing:"));
                 strMessage += "\n\n" + UTF8FilePath(gtaExePath);
                 strMessage +=
                     "\n\n" +
-                    _("Please check your anti-virus for a false-positive detection, try to add an exception for the GTA:SA executable and restart MTA:SA.");
+                    _("Please check your anti-virus for a false-positive detection, try to add an exception for the GTA:SA executable and restart XMP.");
                 BrowseToSolution(SString("gengta_error&code=%d", ec.value()), ASK_GO_ONLINE, strMessage);
                 return "quit";
             }
@@ -1460,7 +1460,7 @@ SString CInstallManager::_ProcessGtaVersionCheck()
 
             if (isAdmin)
             {
-                SString strMessage(_("MTA:SA cannot launch because the GTA:SA executable is not loadable:"));
+                SString strMessage(_("XMP cannot launch because the GTA:SA executable is not loadable:"));
                 strMessage += "\n\n" + UTF8FilePath(gtaExePath);
                 BrowseToSolution(SString("gengta_error&code=%d", ec.value()), ASK_GO_ONLINE, strMessage);
                 return "quit";
@@ -1483,7 +1483,7 @@ SString CInstallManager::_ProcessGtaVersionCheck()
 
         if (isAdmin)
         {
-            SString strMessage(_("MTA:SA cannot launch because patching GTA:SA has failed:"));
+            SString strMessage(_("XMP cannot launch because patching GTA:SA has failed:"));
             strMessage += "\n\n" + UTF8FilePath(gtaExePath);
             BrowseToSolution(SString("patchgta_error&code=%d", ec.value()), ASK_GO_ONLINE, strMessage);
             return "quit";
@@ -1664,7 +1664,7 @@ SString CInstallManager::_ProcessLayoutChecks()
     SString strDriveWithNoSpace = GetDriveNameWithNotEnoughSpace();
     if (!strDriveWithNoSpace.empty())
     {
-        SString strMessage(_("MTA:SA cannot continue because drive %s does not have enough space."), *strDriveWithNoSpace.Left(1));
+        SString strMessage(_("XMP cannot continue because drive %s does not have enough space."), *strDriveWithNoSpace.Left(1));
         BrowseToSolution(SString("low-disk-space&drive=%s", *strDriveWithNoSpace), ASK_GO_ONLINE | TERMINATE_PROCESS, strMessage);
     }
 

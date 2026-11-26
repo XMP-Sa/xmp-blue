@@ -634,18 +634,18 @@ void CPacketHandler::Packet_ServerDisconnected(NetBitStreamInterface& bitStream)
             {_td("This server requires a non-modifed gta_sa.exe")},
             {_td("Please replace gta_sa.exe")},
             {_td("This server does not allow custom D3D9.DLLs")},
-            {_td("Remove D3D9.DLL from your GTA install directory and restart MTA")},
+            {_td("Remove D3D9.DLL from your GTA install directory and restart XMP")},
             {_td("This server does not allow virtual machines")},
             {_td("This server requires driver signing to be enabled")},
             {_td("Please restart your PC")},
             {_td("This server has detected missing anti-cheat components")},
-            {_td("Try restarting MTA")},
+            {_td("Try restarting XMP")},
             {_td("This server requires a non-modifed gta3.img and gta_int.img")},
             {_td("Please replace gta3.img or gta_int.img")},
             {_td("This server requires a non-modifed gta_sa.exe")},
             {_td("Please replace gta_sa.exe")},
             {_td("This server does not allow Wine")},
-            {_td("Ensure no other program is modifying MTA:SA")},
+            {_td("Ensure no other program is modifying XMP")},
         };
         for (auto szSnippet : snippetList)
         {

@@ -291,7 +291,7 @@ namespace
         SString strMsg(
             "%s\n\n"
             "Usually caused by missing GUI/loading-screen assets.\n\n"
-            "Please verify game files or reinstall MTA.",
+            "Please verify game files or reinstall XMP.",
             exception.getMessage().c_str());
         MessageBoxUTF8(0, strMsg, _("Error") + _E("CC54"), MB_OK | MB_ICONERROR | MB_TOPMOST);
         TerminateProcess(GetCurrentProcess(), 9);

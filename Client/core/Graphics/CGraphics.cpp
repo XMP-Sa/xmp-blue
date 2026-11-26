@@ -1533,7 +1533,7 @@ bool CGraphics::LoadStandardDXFonts()
             AddReportLog(9442, SString("Problem with AddFontResourceEx [MD5:%s Size:%d] %s ", *strFileMd5, uiFileSize, *strPathFilename));
             if (!FileExists(strPathFilename))
             {
-                BrowseToSolution("mta-datafiles-missing", EXIT_GAME_FIRST | ASK_GO_ONLINE, "Error loading MTA font " + m_FontResourceNames[i]);
+                BrowseToSolution("mta-datafiles-missing", EXIT_GAME_FIRST | ASK_GO_ONLINE, "Error loading XMP font " + m_FontResourceNames[i]);
             }
         }
     }

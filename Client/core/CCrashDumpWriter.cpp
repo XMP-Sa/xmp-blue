@@ -1635,7 +1635,7 @@ long WINAPI CCrashDumpWriter::HandleExceptionGlobal(_EXCEPTION_POINTERS* pExcept
         HWND hDialogWindow = nullptr;
         for (std::size_t attempts = 0; attempts < MAX_WINDOW_POLL_ATTEMPTS && hDialogWindow == nullptr; ++attempts)
         {
-            hDialogWindow = FindWindowW(nullptr, L"MTA: San Andreas has encountered a problem");
+            hDialogWindow = FindWindowW(nullptr, L"XMP Client has encountered a problem");
             if (hDialogWindow == nullptr)
                 Sleep(Milliseconds(WINDOW_POLL_TIMEOUT));
         }
@@ -2598,7 +2598,7 @@ void CCrashDumpWriter::DumpMiniDump(_EXCEPTION_POINTERS* pException, CExceptionI
 
     HWND hGTAWindow = FindWindowW(L"Grand theft auto San Andreas", nullptr);
     if (hGTAWindow == nullptr)
-        hGTAWindow = FindWindowW(nullptr, L"MTA: San Andreas");
+        hGTAWindow = FindWindowW(nullptr, L"XMP Client");
     if (hGTAWindow != nullptr && IsWindow(hGTAWindow))
     {
         ShowWindowAsync(hGTAWindow, SW_MINIMIZE);
@@ -2831,7 +2831,7 @@ void CCrashDumpWriter::DumpMiniDump(_EXCEPTION_POINTERS* pException, CExceptionI
             HWND hDialogWindow = nullptr;
             for (std::size_t attempts = 0; attempts < MAX_WINDOW_POLL_ATTEMPTS && hDialogWindow == nullptr; ++attempts)
             {
-                hDialogWindow = FindWindowW(nullptr, L"MTA: San Andreas has encountered a problem");
+                hDialogWindow = FindWindowW(nullptr, L"XMP Client has encountered a problem");
                 if (hDialogWindow == nullptr)
                     Sleep(Milliseconds(WINDOW_POLL_TIMEOUT));
             }
@@ -2934,7 +2934,7 @@ void CCrashDumpWriter::DumpMiniDump(_EXCEPTION_POINTERS* pException, CExceptionI
             HWND hDialogWindow = nullptr;
             for (std::size_t attempts = 0; attempts < SHELL_EXEC_POLL_ATTEMPTS && hDialogWindow == nullptr; attempts++)
             {
-                hDialogWindow = FindWindowW(nullptr, L"MTA: San Andreas has encountered a problem");
+                hDialogWindow = FindWindowW(nullptr, L"XMP Client has encountered a problem");
                 if (hDialogWindow == nullptr)
                     Sleep(Milliseconds(WINDOW_POLL_TIMEOUT));
             }
@@ -2967,14 +2967,14 @@ void CCrashDumpWriter::DumpMiniDump(_EXCEPTION_POINTERS* pException, CExceptionI
         AddReportLog(3129, "RunErrorTool completely failed to launch crash dialog");
 
         const wchar_t* emergencyMessage =
-            L"MTA: San Andreas has crashed.\n\n"
+            L"XMP Client has crashed.\n\n"
             L"The usual crash dialog has also failed, with this as fallback.\n\n"
             L"Crash information has been saved to:\n"
             L"XMP\\core.log\n\n"
-            L"Contact support on the MTA discord: https://discord.gg/RygaCSD.\n\n"
+            L"Contact XMP support: https://github.com/XMP-Sa/xmp-launcher/issues\n\n"
             L"The game will now close.";
 
-        MessageBoxW(nullptr, emergencyMessage, L"MTA: San Andreas - Fatal Error", MB_OK | MB_ICONERROR | MB_SYSTEMMODAL | MB_SETFOREGROUND | MB_TOPMOST);
+        MessageBoxW(nullptr, emergencyMessage, L"XMP Client - Fatal Error", MB_OK | MB_ICONERROR | MB_SYSTEMMODAL | MB_SETFOREGROUND | MB_TOPMOST);
     }
 
     return dialogLaunched;

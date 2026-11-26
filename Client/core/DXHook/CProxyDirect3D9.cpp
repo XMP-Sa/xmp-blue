@@ -325,9 +325,9 @@ HRESULT CProxyDirect3D9::CreateDevice(UINT Adapter, D3DDEVTYPE DeviceType, HWND 
 
 // Change the window title to MTA: San Andreas
 #ifdef MTA_DEBUG
-    SetWindowTextW(hFocusWindow, MbUTF8ToUTF16("MTA: San Andreas [DEBUG]").c_str());
+    SetWindowTextW(hFocusWindow, MbUTF8ToUTF16("XMP Client [DEBUG]").c_str());
 #else
-    SetWindowTextW(hFocusWindow, MbUTF8ToUTF16("MTA: San Andreas").c_str());
+    SetWindowTextW(hFocusWindow, MbUTF8ToUTF16("XMP Client").c_str());
 #endif
 
     // Set dark titlebar if needed
@@ -1176,7 +1176,7 @@ HRESULT HandleCreateDeviceResult(HRESULT hResult, IDirect3D9* pDirect3D, UINT Ad
     {
         // Handle fatal error
         SString strMessage;
-        strMessage += "There was a problem starting MTA:SA\n\n";
+        strMessage += "There was a problem starting XMP\n\n";
         strMessage += SString("Direct3D CreateDevice error: %08x", hResult);
         BrowseToSolution("d3dcreatedevice-fail", EXIT_GAME_FIRST | ASK_GO_ONLINE, strMessage);
     }
@@ -1344,18 +1344,18 @@ HRESULT CCore::OnPostCreateDevice(HRESULT hResult, IDirect3D9* pDirect3D, UINT A
     }
 
     if (hResult != D3D_OK)
-        WriteDebugEvent(SString("MTA CreateDevice failed: %08x", hResult));
+        WriteDebugEvent(SString("XMP CreateDevice failed: %08x", hResult));
     else
-        WriteDebugEvent("MTA CreateDevice succeeded");
+        WriteDebugEvent("XMP CreateDevice succeeded");
 
     if (hResult == D3D_OK)
         AddCapsReport(Adapter, pDirect3D, *ppReturnedDeviceInterface, true);
 
 // Change the window title to MTA: San Andreas
 #ifdef MTA_DEBUG
-    SetWindowTextW(hFocusWindow, MbUTF8ToUTF16("MTA: San Andreas [DEBUG]").c_str());
+    SetWindowTextW(hFocusWindow, MbUTF8ToUTF16("XMP Client [DEBUG]").c_str());
 #else
-    SetWindowTextW(hFocusWindow, MbUTF8ToUTF16("MTA: San Andreas").c_str());
+    SetWindowTextW(hFocusWindow, MbUTF8ToUTF16("XMP Client").c_str());
 #endif
 
     // Log graphic card name
@@ -1436,7 +1436,7 @@ HRESULT CCore::OnPostCreateDevice(HRESULT hResult, IDirect3D9* pDirect3D, UINT A
     {
         // Inform user
         SString strMessage;
-        strMessage += "There was a problem starting MTA:SA\n\n";
+        strMessage += "There was a problem starting XMP\n\n";
         strMessage += SString("Direct3D CreateDevice error: %08x", hResult);
         BrowseToSolution("d3dcreatedevice-fail", EXIT_GAME_FIRST | ASK_GO_ONLINE, strMessage);
     }
