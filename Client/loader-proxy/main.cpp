@@ -899,7 +899,7 @@ auto MakeLauncherError(std::wstring message) -> std::wstring
         message += L"\n\n";
 
     message +=
-        L"Please launch the game through the Multi Theft Auto launcher executable. "
+        L"Please launch the game through the XMP Client executable. "
         L"You can find the launcher either on your desktop or in the MTA:SA installation directory.";
 
     return message;

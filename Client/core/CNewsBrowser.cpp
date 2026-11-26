@@ -384,7 +384,7 @@ bool CNewsBrowser::OnOKButtonClick(CGUIElement* pElement)
 bool CNewsBrowser::OnNewsLinkButtonClick(CGUIElement* pElement)
 {
     // Visit the website
-    ShellExecuteNonBlocking("open", "https://multitheftauto.com/news");
+    ShellExecuteNonBlocking("open", "https://github.com/XMP-Sa/xmp-launcher");
 
     // Close the window
     m_pWindow->SetVisible(false);

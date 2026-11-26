@@ -1250,14 +1250,14 @@ void ValidateGTAPath()
 
     if (result == GAME_PATH_MISSING)
     {
-        DisplayErrorMessageBox(_("Registry entries are missing. Please reinstall Multi Theft Auto: San Andreas."), _E("CL12"), "reg-entries-missing");
+        DisplayErrorMessageBox(_("Registry entries are missing. Please reinstall XMP."), _E("CL12"), "reg-entries-missing");
         ExitProcess(EXIT_ERROR);
     }
     else if (result == GAME_PATH_UNICODE_CHARS)
     {
         DisplayErrorMessageBox(_("The path to your installation of GTA: San Andreas contains unsupported (unicode) characters. "
                                  "Please move your Grand Theft Auto: San Andreas installation to a compatible path that contains "
-                                 "only standard ASCII characters and reinstall Multi Theft Auto: San Andreas."),
+                                 "only standard ASCII characters and reinstall XMP."),
                                _E("CL13"));
         ExitProcess(EXIT_ERROR);
     }

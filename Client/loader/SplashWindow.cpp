@@ -120,7 +120,7 @@ bool Splash::CreateSplashWindow(HINSTANCE instance)
             return false;
     }
 
-    HWND window = CreateWindowExA(WS_EX_TOPMOST, windowClass.lpszClassName, "Multi Theft Auto Launcher", WS_POPUP, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT,
+    HWND window = CreateWindowExA(WS_EX_TOPMOST, windowClass.lpszClassName, "XMP Client", WS_POPUP, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT,
                                   CW_USEDEFAULT, NULL, NULL, instance, NULL);
 
     if (window == nullptr)

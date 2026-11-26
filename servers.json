@@ -1,0 +1,4 @@
+{
+  "_comment": "Official XMP server list. The XMP Launcher fetches this file from the xmp-blue repo and merges it with the public master list; entries here get the XMP badge and the 'XMP servers' filter. Add a server by opening a PR or editing this file. ip/port must be reachable; players are always measured live via ASE, never stored here.",
+  "servers": []
+}
